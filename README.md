@@ -4,3 +4,4 @@ Dependencies:
 - JDK;
 - GRADLE;
 - GNU/GCC;
+- JFX (Must specify path of installation);

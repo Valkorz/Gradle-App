@@ -8,9 +8,10 @@
 sourceSets {
     main {
         java {
-            srcDirs ("src/com/java/", "src/com/java/root/") // Add your subfolder here
-        }
+            srcDirs ("src/com/java/", "src/com/java/root/") 
+        }       
     }
+
 }
 
 plugins {
@@ -35,7 +36,16 @@ dependencies {
     // This dependency is used by the application.
     implementation(libs.guava)
 
-    implementation file("C:\\JDK\\javafx-sdk-22\\lib")
+    implementation(kotlin("stdlib-jdk8"))
+    implementation("org.openjfx:javafx-controls:15.0.1")
+    implementation("org.openjfx:javafx-fxml:15.0.1")
+    implementation("org.openjfx:javafx-base:15.0.1")
+    implementation("org.openjfx:javafx-graphics:15.0.1")
+    implementation("org.openjfx:javafx-media:15.0.1")
+    implementation("org.openjfx:javafx-swing:15.0.1")
+    implementation("org.openjfx:javafx-web:15.0.1")
+
+    //implementationFiles("C:\\JDK\\javafx-sdk-22\\lib")
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
@@ -49,3 +59,21 @@ application {
     // Define the main class for the application.
     mainClass = "src.com.java.root.App"
 }
+
+/* 
+tasks {
+    compileKotlin {
+        kotlinOptions.jvmTarget = "1.8"
+    }
+    compileTestKotlin {
+        kotlinOptions.jvmTarget = "1.8"
+    }
+
+    named("run").configure {
+        if (project.hasProperty("mainClass")) {
+            val mainClass: String by project
+            systemProperty("java.awt.headless", "true")
+            args("--module-path", "C:\\JDK\\javafx-sdk-22\\lib", "--add-modules", "javafx.controls,javafx.fxml", mainClass)
+        }
+    }
+} */
